@@ -6,23 +6,11 @@ async function main() {
 
   await prisma.prompt.create({
     data: {
-      title: 'Título YouTube',
-      template: `Seu papel é gerar três títulos para um vídeo do YouTube.
-
-Abaixo você receberá uma transcrição desse vídeo, use essa transcrição para gerar os títulos.
-Abaixo você também receberá uma lista de títulos, use essa lista como referência para os títulos a serem gerados.
-
-Os títulos devem ter no máximo 60 caracteres.
-Os títulos devem ser chamativos e atrativos para maximizar os cliques.
-
-Retorne APENAS os três títulos em formato de lista como no exemplo abaixo:
+      title: 'Default',
+      template: `Write here what you want...
+      
 '''
-- Título 1
-- Título 2
-- Título 3
-'''
-
-Transcrição:
+Transcription:
 '''
 {transcription}
 '''`.trim()
@@ -31,25 +19,53 @@ Transcrição:
 
   await prisma.prompt.create({
     data: {
-      title: 'Descrição YouTube',
-      template: `Seu papel é gerar uma descrição sucinta para um vídeo do YouTube.
-  
-Abaixo você receberá uma transcrição desse vídeo, use essa transcrição para gerar a descrição.
+      title: 'YouTube title',
+      template: `Its role is to generate three titles for a YouTube video.
 
-A descrição deve possuir no máximo 80 palavras em primeira pessoa contendo os pontos principais do vídeo.
+Below you will receive a transcript of this video, use this transcript to generate the titles.
+Below you will also receive a list of titles, use this list as a reference for the titles to be generated.
+      
+Titles must have a maximum of 60 characters.
+Titles must be eye-catching and attractive to maximize clicks.
+      
+Return ONLY the three titles in list format as in the example below:
 
-Use palavras chamativas e que cativam a atenção de quem está lendo.
-
-Além disso, no final da descrição inclua uma lista de 3 até 10 hashtags em letra minúscula contendo palavras-chave do vídeo.
-
-O retorno deve seguir o seguinte formato:
 '''
-Descrição.
+- Title 1
+- Title 2
+- Title 3
+'''
+
+Transcription:
+'''
+{transcription}
+'''`.trim()
+    }
+  })
+
+
+
+  await prisma.prompt.create({
+    data: {
+      title: 'Youtube description',
+      template: `Its role is to generate a succinct description for a YouTube video.
+
+Below you will receive a transcript of this video, use this transcript to generate the description.
+      
+The description must have a maximum of 80 words in the first person containing the main points of the video.
+      
+Use eye-catching words that capture the attention of those reading.
+      
+Additionally, at the end of the description include a list of 3 to 10 hashtags in lowercase letters containing the video's keywords.
+      
+The return must follow the following format:
+'''
+Description:
 
 #hashtag1 #hashtag2 #hashtag3 ...
 '''
 
-Transcrição:
+Transcription:
 '''
 {transcription}
 '''`.trim()

@@ -34,7 +34,7 @@ export function PromptSelect(props: PromptSelectProps) {
   return (
     <Select onValueChange={handlePromptSelected}>
       <SelectTrigger>
-        <SelectValue placeholder="Select a prompt." />
+        <SelectValue placeholder="Select a prompt" />
       </SelectTrigger>
       <SelectContent>
         {prompts?.map(prompt => {

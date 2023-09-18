@@ -35,7 +35,7 @@ export function App() {
   return (
     <div className="min-h-screen flex flex-col">
       <div className="px-6 py-3 flex items-center justify-between border-b bg-primary/5">
-        <h1 className="text-xl font-bold">Smart Play</h1>
+        <h1 className="text-2xl font-poppins font-semibold">Smart Play</h1>
 
         <div className="flex items-center gap-3">
           <span className="text-sm text-muted-foreground">
